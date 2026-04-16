@@ -13,17 +13,19 @@ export function DataTable<T>({ datos, columnas }: DataTableProps<T>) {
     <table>
       <thead>
         <tr>
-          {columnas.map((col, i) => (
-            <th key={i}>{col.titulo}</th>
+          {columnas.map((columna) => (
+            <th key={String(columna.clave)}>{columna.titulo}</th>
           ))}
         </tr>
       </thead>
 
       <tbody>
-        {datos.map((fila, i) => (
-          <tr key={i}>
-            {columnas.map((col, j) => (
-              <td key={j}>{String(fila[col.clave])}</td>
+        {datos.map((fila, filaIndex) => (
+          <tr key={filaIndex}>
+            {columnas.map((columna) => (
+              <td key={String(columna.clave)}>
+                {String(fila[columna.clave])}
+              </td>
             ))}
           </tr>
         ))}
