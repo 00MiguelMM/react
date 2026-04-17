@@ -1,3 +1,4 @@
+import { calcularDiferenciaDias } from "./utils/date-utils";
 import { DataTable } from "./DataTable";
 import { useState } from 'react'
 import reactLogo from './assets/react.svg'
@@ -7,6 +8,13 @@ import './App.css'
 
 function App() {
   const [count, setCount] = useState(0)
+
+  const dias = calcularDiferenciaDias(
+  new Date("2026-04-01"),
+  new Date("2026-04-10")
+);
+
+console.log(dias);
 
   const datos = [
   { nombre: "Miguel", edad: 22 },
